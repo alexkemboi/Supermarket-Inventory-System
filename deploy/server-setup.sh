@@ -40,6 +40,12 @@ echo "==> Building and starting containers"
 docker compose -f docker-compose.prod.yml up -d --build
 
 echo "==> Configuring host nginx"
+# nginx silently ignores duplicate server_names, so refuse to continue if another site claims ours.
+CLASH=$(grep -lE "server_name[^;]*\b($WEB_DOMAIN|$API_DOMAIN)\b" /etc/nginx/sites-enabled/* 2>/dev/null | grep -v "/inventory.conf$" || true)
+if [ -n "$CLASH" ]; then
+  echo "These nginx sites already serve $WEB_DOMAIN or $API_DOMAIN:"; echo "$CLASH"
+  echo "Remove the domains from them (or disable them) and re-run."; exit 1
+fi
 cat > /etc/nginx/sites-available/inventory.conf <<EOF
 map \$http_upgrade \$inventory_connection_upgrade {
     default upgrade;
@@ -88,7 +94,7 @@ echo "==> Issuing TLS certificates"
 if command -v ufw >/dev/null && ufw status | grep -q "Status: active"; then
   ufw allow 'Nginx Full'
 fi
-certbot --nginx --non-interactive --agree-tos --redirect -m "$CERT_EMAIL" -d "$WEB_DOMAIN" -d "$API_DOMAIN"
+certbot --nginx --non-interactive --agree-tos --redirect --expand -m "$CERT_EMAIL" -d "$WEB_DOMAIN" -d "$API_DOMAIN"
 
 echo "==> Waiting for API health (first start seeds the database and can take a few minutes)"
 for i in $(seq 1 90); do
