@@ -1,12 +1,19 @@
-import { Injectable, signal } from '@angular/core';
+import { inject, Injectable, InjectionToken, signal } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 import { Subject } from 'rxjs';
-import { LowStockAlert } from './models';
+import { LowStockAlert, LowStockNotice } from './models';
+
+export const STOCK_HUB_CONNECTION = new InjectionToken<signalR.HubConnection>('STOCK_HUB_CONNECTION', {
+  providedIn: 'root',
+  factory: () => new signalR.HubConnectionBuilder().withUrl('/hubs/stock').withAutomaticReconnect().build(),
+});
+
+const MAX_ALERTS = 5;
 
 @Injectable({ providedIn: 'root' })
 export class StockRealtimeService {
   readonly state = signal<'offline' | 'connecting' | 'live'>('offline');
-  readonly alerts = signal<LowStockAlert[]>([]);
+  readonly alerts = signal<LowStockNotice[]>([]);
   readonly stockUpdated = new Subject<{ productId: number; stock: number }>();
   readonly refreshRequested = new Subject<void>();
 
@@ -15,17 +22,20 @@ export class StockRealtimeService {
   }
 
   private started = false;
-  private readonly connection = new signalR.HubConnectionBuilder()
-    .withUrl('/hubs/stock')
-    .withAutomaticReconnect()
-    .build();
+  private nextAlertId = 1;
+  private restartAttempts = 0;
+  private restartTimer: ReturnType<typeof setTimeout> | undefined;
+  private readonly connection = inject(STOCK_HUB_CONNECTION);
 
+  // Hub handlers are registered once, here, for the lifetime of this root singleton. Components only
+  // subscribe to the subjects/signals above, so re-creating a component never adds a second listener.
   constructor() {
     this.connection.on('StockUpdated', (productId: number, stock: number) => {
       this.stockUpdated.next({ productId, stock });
     });
     this.connection.on('LowStockAlert', (alert: LowStockAlert) => {
-      this.alerts.update((alerts) => [alert, ...alerts].slice(0, 5));
+      const notice: LowStockNotice = { ...alert, id: this.nextAlertId++, receivedAt: new Date() };
+      this.alerts.update((alerts) => [notice, ...alerts].slice(0, MAX_ALERTS));
     });
     this.connection.onreconnecting(() => this.state.set('connecting'));
     this.connection.onclose(() => {
@@ -59,11 +69,12 @@ export class StockRealtimeService {
     }
   }
 
+  dismissAlert(id: number): void {
+    this.alerts.update((alerts) => alerts.filter((alert) => alert.id !== id));
+  }
+
   // withAutomaticReconnect gives up after ~40s; keep retrying (capped backoff) so a longer API outage
   // does not leave the page permanently offline. Data is reloaded once the connection is back.
-  private restartAttempts = 0;
-  private restartTimer: ReturnType<typeof setTimeout> | undefined;
-
   private scheduleRestart(): void {
     if (this.restartTimer !== undefined) return;
     const delay = Math.min(30_000, 1_000 * 2 ** this.restartAttempts++);

@@ -9,7 +9,7 @@
 @if (realtime.alerts().length) {
   <section class="alerts" aria-live="polite">
     <span>Active signal</span>
-    @for (alert of realtime.alerts(); track alert.productId) {
+    @for (alert of realtime.alerts(); track alert.id) {
       <strong>{{ alert.productName }} fell to {{ alert.stock }} units</strong>
     }
   </section>

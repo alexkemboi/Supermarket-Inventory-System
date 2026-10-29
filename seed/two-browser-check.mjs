@@ -3,7 +3,10 @@
 // Starts headless Chrome, opens the Angular app in two isolated browser contexts ("browser A" and
 // "browser B", separate storage and SignalR connections), places an order by clicking "Order" in
 // browser A and reports whether browser B's page shows the new stock without a reload. It then
-// places an order that must fail and checks that browser B is not updated by it.
+// places an order that must fail and checks that browser B is not updated by it. Finally it drives the
+// product across its reorder threshold from browser A and checks the LowStockAlert toast in both
+// browsers (none at exactly the threshold, one when below, none for a failed order, no duplicates after
+// navigating away and back).
 //
 // Usage: node seed/two-browser-check.mjs [productSku]
 //   APP_URL (default http://localhost:4200), API_URL (default http://localhost:5080),
@@ -110,10 +113,29 @@ async function clickOrder(page, sku) {
   })()`);
 }
 
+async function api(path, body) {
+  const response = await fetch(`${API_URL}${path}`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+  });
+  if (!response.ok) throw new Error(`${path} returned ${response.status}`);
+}
+
+const toasts = `[...document.querySelectorAll('app-low-stock-alerts .toast')].map(t =>
+  [...t.querySelectorAll('span, strong, p')].map(x => x.textContent.trim()).join(' | '))`;
+
+function check(label, ok) {
+  log(`${label}  -> ${ok ? 'PASS' : 'FAIL'}`);
+  if (!ok) exitCode = 1;
+}
+
 let exitCode = 0;
 try {
   await connect();
-  const product = (await (await fetch(`${API_URL}/api/products?search=${SKU}`)).json()).items[0];
+  let product = (await (await fetch(`${API_URL}/api/products?search=${SKU}`)).json()).items[0];
+  const target = product.reorderThreshold + 2;
+  if (product.stock > target) await api('/api/orders', { lines: [{ productId: product.id, quantity: product.stock - target }] });
+  if (product.stock < target) await api(`/api/products/${product.id}/restock`, { quantity: target - product.stock });
+  product = (await (await fetch(`${API_URL}/api/products?search=${SKU}`)).json()).items[0];
   log(`Product ${product.sku} "${product.name}" stock ${product.stock}, threshold ${product.reorderThreshold}`);
 
   const a = await openBrowser('Browser A', '/inventory');
@@ -151,6 +173,38 @@ try {
   const unchanged = after === before && dbStock === before;
   log(`Browser B after failed order: ${after} (before ${before}, database ${dbStock})  -> ${unchanged ? 'PASS' : 'FAIL'}`);
   if (!unchanged) exitCode = 1;
+
+  // 3. Low-stock alerts. Stock is now threshold + 1.
+  const threshold = product.reorderThreshold;
+  await setQuantity(a, 1);
+  await clickOrder(a, SKU);
+  await waitFor(b, rowStock(SKU), (v) => v === threshold, 5000, `stock ${threshold}`);
+  await sleep(1000);
+  check(`Order to exactly the threshold (${threshold}): toasts A=${(await a.eval(toasts)).length} B=${(await b.eval(toasts)).length}, expected none`,
+    (await a.eval(toasts)).length === 0 && (await b.eval(toasts)).length === 0);
+
+  await clickOrder(a, SKU);
+  const expectedToast = `Low stock | ${product.name} | ${threshold - 1} left · reorder at ${threshold}`;
+  for (const page of [a, b]) {
+    const shown = await waitFor(page, toasts, (t) => t?.length === 1, 5000, 'low stock toast').catch(() => []);
+    check(`${page.name} toast after falling to ${threshold - 1}: ${JSON.stringify(shown)}`,
+      shown.length === 1 && shown[0] === expectedToast);
+  }
+
+  await setQuantity(a, 100000);
+  await clickOrder(a, SKU);
+  await sleep(1500);
+  check(`Failed order: toasts A=${(await a.eval(toasts)).length} B=${(await b.eval(toasts)).length}, expected 1 each`,
+    (await a.eval(toasts)).length === 1 && (await b.eval(toasts)).length === 1);
+
+  // Re-initialise browser B's page components via client-side navigation (no reload).
+  await b.eval(`document.querySelector('nav a[href="/board"]').click()`);
+  await waitFor(b, `location.pathname`, (p) => p === '/board', 5000, 'board route');
+  await b.eval(`document.querySelector('nav a[href="/inventory"]').click()`);
+  await waitFor(b, rowStock(SKU), (v) => typeof v === 'number', 5000, 'inventory route');
+  await sleep(500);
+  check(`Browser B toasts after navigating away and back: ${(await b.eval(toasts)).length}, expected 1`,
+    (await b.eval(toasts)).length === 1);
 } catch (error) {
   log(`ERROR: ${error.message}`);
   exitCode = 2;
