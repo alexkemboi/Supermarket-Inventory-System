@@ -210,6 +210,27 @@ public class OrderConcurrencyTests(SqlServerDatabase db, ITestOutputHelper outpu
     }
 
     [Fact]
+    public async Task Concurrent_cancellations_return_stock_only_once()
+    {
+        var productId = await db.CreateProductAsync(stock: 10);
+        var orderId = await (await InstanceA.PlaceOrderAsync(productId, 4)).OrderIdAsync();
+        var clients = new[] { InstanceA, InstanceB };
+        using var gate = new ManualResetEventSlim(false);
+
+        var tasks = Enumerable.Range(0, 10).Select(i => Task.Run(async () =>
+        {
+            gate.Wait();
+            return await clients[i % 2].PostAsync($"/api/orders/{orderId}/cancel", null);
+        })).ToList();
+        gate.Set();
+        var statuses = (await Task.WhenAll(tasks)).Select(r => r.StatusCode).ToList();
+
+        Assert.Equal(1, statuses.Count(s => s == HttpStatusCode.NoContent));
+        Assert.Equal(9, statuses.Count(s => s == HttpStatusCode.Conflict));
+        Assert.Equal(10, await db.GetStockAsync(productId));
+    }
+
+    [Fact]
     public async Task Database_rejects_negative_stock_even_from_a_raw_update()
     {
         var productId = await db.CreateProductAsync(stock: 1);
