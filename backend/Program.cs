@@ -26,7 +26,8 @@ builder.Services.AddSingleton<IStockNotifier, SignalRStockNotifier>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+// Always on in Development; enable elsewhere with Swagger__Enabled=true.
+if (app.Environment.IsDevelopment() || app.Configuration.GetValue<bool>("Swagger:Enabled"))
 {
     app.MapOpenApi();
     // Interactive docs at /swagger, rendered from the built-in OpenAPI document.
