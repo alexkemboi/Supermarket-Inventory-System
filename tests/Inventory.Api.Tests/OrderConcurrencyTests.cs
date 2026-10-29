@@ -63,6 +63,9 @@ public class OrderConcurrencyTests(SqlServerDatabase db, ITestOutputHelper outpu
         var productId = await db.CreateProductAsync(stock: 1);
         var clientA = InstanceA;
         var clientB = InstanceB;
+        // Warm both hosts first so neither request is still running startup work when the lock is held.
+        await clientA.GetAsync("/health");
+        await clientB.GetAsync("/health");
 
         await using var blocker = new SqlConnection(db.ConnectionString);
         await blocker.OpenAsync();
@@ -213,8 +216,12 @@ public class OrderConcurrencyTests(SqlServerDatabase db, ITestOutputHelper outpu
         var stopwatch = Stopwatch.StartNew();
         while (true)
         {
+            // Waiters queue behind each other, so the second request may report the first as its blocker.
             await using var command = new SqlCommand(
-                "SELECT COUNT(*) FROM sys.dm_exec_requests WHERE blocking_session_id = @session", monitor);
+                """
+                SELECT COUNT(*) FROM sys.dm_exec_requests
+                WHERE database_id = DB_ID() AND blocking_session_id <> 0 AND session_id <> @session
+                """, monitor);
             command.Parameters.AddWithValue("@session", blockingSession);
             var blocked = (int)(await command.ExecuteScalarAsync())!;
             if (blocked >= expected) return;
