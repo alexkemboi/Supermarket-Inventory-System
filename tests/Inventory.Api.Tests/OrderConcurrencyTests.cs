@@ -209,6 +209,21 @@ public class OrderConcurrencyTests(SqlServerDatabase db, ITestOutputHelper outpu
         Assert.Equal(2, await db.OrderLineCountAsync(productId));
     }
 
+    [Fact]
+    public async Task Database_rejects_negative_stock_even_from_a_raw_update()
+    {
+        var productId = await db.CreateProductAsync(stock: 1);
+        await using var connection = new SqlConnection(db.ConnectionString);
+        await connection.OpenAsync();
+        await using var command = new SqlCommand("UPDATE Products SET Stock = -1 WHERE Id = @id", connection);
+        command.Parameters.AddWithValue("@id", productId);
+
+        var error = await Assert.ThrowsAsync<SqlException>(() => command.ExecuteNonQueryAsync());
+
+        Assert.Contains("CK_Products_Stock_NonNegative", error.Message);
+        Assert.Equal(1, await db.GetStockAsync(productId));
+    }
+
     private async Task WaitForBlockedRequestsAsync(short blockingSession, int expected)
     {
         await using var monitor = new SqlConnection(db.ConnectionString);

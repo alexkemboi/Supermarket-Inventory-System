@@ -71,6 +71,7 @@ public class ProductsController(AppDbContext db) : ControllerBase
     {
         if (!await db.Categories.AnyAsync(c => c.Id == request.CategoryId, ct))
             return BadRequest($"Category {request.CategoryId} does not exist.");
+        if (request.Stock < 0) return BadRequest("Stock cannot be negative.");
 
         var product = new Product
         {
@@ -103,6 +104,7 @@ public class ProductsController(AppDbContext db) : ControllerBase
     {
         var product = await db.Products.FindAsync([id], ct);
         if (product is null) return NotFound();
+        if (request.Stock < 0) return BadRequest("Stock cannot be negative.");
 
         product.Name = request.Name;
         product.Sku = request.Sku;

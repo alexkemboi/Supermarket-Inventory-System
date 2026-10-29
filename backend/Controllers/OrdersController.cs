@@ -9,7 +9,7 @@ namespace Inventory.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class OrdersController(AppDbContext db, IStockNotifier notifier) : ControllerBase
+public class OrdersController(AppDbContext db, IStockNotifier notifier, ILogger<OrdersController> logger) : ControllerBase
 {
     [HttpPost]
     public async Task<IActionResult> Place(PlaceOrderRequest request, CancellationToken ct)
@@ -23,23 +23,31 @@ public class OrdersController(AppDbContext db, IStockNotifier notifier) : Contro
         var order = new Order { OrderDate = DateTime.UtcNow, Status = OrderStatus.Placed };
         var stockChanges = new List<(int Id, string Name, int Previous, int Current, int Threshold)>();
 
+        // Deductions and the order insert commit or roll back together. Disposing the transaction
+        // without committing (any early return or exception) rolls back every deduction made so far.
+        await using var transaction = await db.Database.BeginTransactionAsync(ct);
+
         foreach (var line in request.Lines)
         {
+            // Check-and-deduct is a single conditional UPDATE. SQL Server takes the row's update lock
+            // before evaluating "Stock >= @quantity", so concurrent requests on any API instance are
+            // serialized on the row and a request can only deduct stock that is still there.
+            var deducted = await db.Products
+                .Where(p => p.Id == line.ProductId && p.Stock >= line.Quantity)
+                .ExecuteUpdateAsync(update => update.SetProperty(p => p.Stock, p => p.Stock - line.Quantity), ct);
+
+            if (deducted == 0)
+            {
+                return await db.Products.AnyAsync(p => p.Id == line.ProductId, ct)
+                    ? Conflict(new { error = $"Insufficient stock for product {line.ProductId}." })
+                    : NotFound(new { error = $"Product {line.ProductId} not found." });
+            }
+
+            // The row stays exclusively locked by this transaction, so this is exactly our post-deduction value.
             var product = await db.Products
                 .Where(p => p.Id == line.ProductId)
                 .Select(p => new { p.Id, p.Name, p.UnitPrice, p.Stock, p.ReorderThreshold })
-                .SingleOrDefaultAsync(ct);
-
-            if (product is null)
-                return NotFound(new { error = $"Product {line.ProductId} not found." });
-
-            if (product.Stock < line.Quantity)
-                return Conflict(new { error = $"Insufficient stock for product {line.ProductId}." });
-
-            var newStock = product.Stock - line.Quantity;
-            await db.Products
-                .Where(p => p.Id == line.ProductId)
-                .ExecuteUpdateAsync(update => update.SetProperty(p => p.Stock, newStock), ct);
+                .SingleAsync(ct);
 
             order.Lines.Add(new OrderLine
             {
@@ -47,17 +55,27 @@ public class OrdersController(AppDbContext db, IStockNotifier notifier) : Contro
                 Quantity = line.Quantity,
                 UnitPrice = product.UnitPrice
             });
-            stockChanges.Add((product.Id, product.Name, product.Stock, newStock, product.ReorderThreshold));
+            stockChanges.Add((product.Id, product.Name, product.Stock + line.Quantity, product.Stock, product.ReorderThreshold));
         }
 
         db.Orders.Add(order);
         await db.SaveChangesAsync(ct);
+        await transaction.CommitAsync(ct);
 
-        foreach (var change in stockChanges)
+        // Notifications are best-effort and only sent after commit: a publish failure must not turn a
+        // committed order into an error response (the client would retry and create a duplicate order).
+        try
         {
-            await notifier.StockUpdatedAsync(change.Id, change.Current, ct, request.ConnectionId);
-            if (change.Previous >= change.Threshold && change.Current < change.Threshold)
-                await notifier.LowStockAlertAsync(change.Id, change.Name, change.Current, change.Threshold, ct);
+            foreach (var change in stockChanges)
+            {
+                await notifier.StockUpdatedAsync(change.Id, change.Current, CancellationToken.None, request.ConnectionId);
+                if (change.Previous >= change.Threshold && change.Current < change.Threshold)
+                    await notifier.LowStockAlertAsync(change.Id, change.Name, change.Current, change.Threshold, CancellationToken.None);
+            }
+        }
+        catch (Exception ex)
+        {
+            logger.LogWarning(ex, "Order {OrderId} committed but stock notifications could not be published.", order.Id);
         }
 
         return Ok(new { id = order.Id });

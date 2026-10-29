@@ -19,6 +19,8 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.Property(p => p.UnitPrice).HasPrecision(18, 2);
             e.Property(p => p.RowVersion).IsRowVersion();
             e.HasIndex(p => p.Sku).IsUnique();
+            // Last line of defence: no code path may persist negative stock.
+            e.ToTable(t => t.HasCheckConstraint("CK_Products_Stock_NonNegative", "[Stock] >= 0"));
         });
 
         modelBuilder.Entity<Category>(e =>

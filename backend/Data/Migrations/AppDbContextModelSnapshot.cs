@@ -137,7 +137,10 @@ namespace Inventory.Api.Data.Migrations
                     b.HasIndex("Sku")
                         .IsUnique();
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", t =>
+                        {
+                            t.HasCheckConstraint("CK_Products_Stock_NonNegative", "[Stock] >= 0");
+                        });
                 });
 
             modelBuilder.Entity("Inventory.Api.Models.OrderLine", b =>
