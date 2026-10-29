@@ -62,8 +62,27 @@ Change load-generator inputs with environment variables:
 PRODUCT_ID=10 REQUESTS=20 QUANTITY=2 ./seed/stress-orders.sh
 ```
 
+## Tests
+
+```bash
+# Backend integration tests (need the compose SQL Server; each test class creates and drops its own database).
+# The connection string defaults to backend/appsettings.json and can be overridden:
+#   export ConnectionStrings__DefaultConnection="Server=tcp:127.0.0.1,1433;...;TrustServerCertificate=True"
+dotnet test Inventory.sln
+
+# Angular unit tests
+npm --prefix frontend test -- --watch=false --browsers=ChromeHeadless
+
+# Live checks against the running stack
+node seed/two-browser-check.mjs FPR-000021      # two headless Chrome users, stock sync + low-stock toasts
+node seed/load-test.mjs orders --urls http://localhost:5080 --product 1 --requests 40 --concurrency 20
+```
+
+See `ROOT_CAUSE_ANALYSIS.md` and `SOLUTIONS.md` for the investigated issues and their verification.
+
 ## Troubleshooting
 
 - If startup hangs, run `docker compose ps` and wait for `db` to report healthy.
-- If a port is occupied, stop the process using it before restarting Compose.
+- If a port is occupied, stop the process using it before restarting Compose. On Windows, a local SQL Server
+  (e.g. `MSSQL$SQLEXPRESS`) on 1433 silently captures `localhost,1433` connections from the host.
 - To discard all database state, use `docker compose down -v` and start again.
