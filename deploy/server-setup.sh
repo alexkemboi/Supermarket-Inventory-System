@@ -30,6 +30,10 @@ SEED_ORDER_COUNT=250000
 EOF
   chmod 600 .env
 fi
+# Added separately so an .env from an earlier deploy gains it too. Rotating it signs everyone out.
+if ! grep -q '^JWT_KEY=' .env; then
+  echo "JWT_KEY=$(openssl rand -hex 32)" >> .env
+fi
 
 # Host ports; override in .env if they clash with something already on the server.
 set -a; . ./.env; set +a

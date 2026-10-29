@@ -9,6 +9,7 @@ export class FakeHubConnection {
   readonly invoked: string[] = [];
   connectionId: string | null = 'connection-1';
   startCalls = 0;
+  stopCalls = 0;
   failStart = false;
   private closeHandler?: Handler;
   private reconnectingHandler?: Handler;
@@ -25,6 +26,11 @@ export class FakeHubConnection {
   async start(): Promise<void> {
     this.startCalls++;
     if (this.failStart) throw new Error('hub unavailable');
+  }
+
+  async stop(): Promise<void> {
+    this.stopCalls++;
+    this.closeHandler?.();
   }
 
   async invoke(method: string): Promise<void> {

@@ -67,9 +67,10 @@ public sealed class SqlServerDatabase : IAsyncLifetime
 
     public InventoryApiFactory Primary => factories[0];
 
-    public InventoryApiFactory CreateFactory(Action<IServiceCollection>? configureServices = null)
+    public InventoryApiFactory CreateFactory(
+        Action<IServiceCollection>? configureServices = null, bool authenticated = true)
     {
-        var factory = new InventoryApiFactory(ConnectionString, configureServices);
+        var factory = new InventoryApiFactory(ConnectionString, configureServices, authenticated);
         factories.Add(factory);
         return factory;
     }

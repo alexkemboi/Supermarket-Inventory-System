@@ -9,9 +9,9 @@
 <section class="toolbar" aria-label="Inventory controls">
   <label>
     <span>Search stock</span>
-    <input [(ngModel)]="search" (keyup.enter)="load()" placeholder="Name or SKU" />
+    <input [(ngModel)]="search" (keyup.enter)="runQuery()" placeholder="Name or SKU" />
   </label>
-  <button class="primary" type="button" (click)="load()">Run query</button>
+  <button class="primary" type="button" (click)="runQuery()">Run query</button>
   <label class="quantity">
     <span>Move qty.</span>
     <input [(ngModel)]="quantity" type="number" min="1" />
@@ -59,3 +59,28 @@
     </tbody>
   </table>
 </div>
+
+<nav class="pager" aria-label="Inventory pages">
+  <p class="range" aria-live="polite">
+    @if (total() > 0) {
+      Showing <strong>{{ rangeStart() }}–{{ rangeEnd() }}</strong> of <strong>{{ total() }}</strong>
+    } @else {
+      No results
+    }
+  </p>
+  <label class="page-size">
+    <span>Rows</span>
+    <select [ngModel]="pageSize()" (ngModelChange)="changePageSize($event)" aria-label="Rows per page">
+      @for (size of pageSizes; track size) {
+        <option [ngValue]="size">{{ size }}</option>
+      }
+    </select>
+  </label>
+  <div class="pages">
+    <button type="button" (click)="goToPage(1)" [disabled]="page() === 1 || loading()" aria-label="First page">«</button>
+    <button type="button" (click)="goToPage(page() - 1)" [disabled]="page() === 1 || loading()" aria-label="Previous page">‹ Prev</button>
+    <span class="current">Page {{ page() }} / {{ totalPages() }}</span>
+    <button type="button" (click)="goToPage(page() + 1)" [disabled]="page() >= totalPages() || loading()" aria-label="Next page">Next ›</button>
+    <button type="button" (click)="goToPage(totalPages())" [disabled]="page() >= totalPages() || loading()" aria-label="Last page">»</button>
+  </div>
+</nav>

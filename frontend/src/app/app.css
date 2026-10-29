@@ -7,10 +7,15 @@ nav { align-self: stretch; display: flex; }
 nav a { align-items: center; border-left: 1px solid var(--line); color: var(--muted); display: flex; font: 700 .7rem var(--mono); letter-spacing: .1em; padding: 0 1.5rem; text-decoration: none; text-transform: uppercase; }
 nav a:last-child { border-right: 1px solid var(--line); }
 nav a.active, nav a:hover { background: var(--paper); color: var(--ink); }
-.status { align-items: center; color: var(--muted); display: flex; font: 700 .65rem var(--mono); gap: .5rem; justify-self: end; text-transform: uppercase; }
+.account { align-items: center; display: flex; gap: 1rem; justify-self: end; }
+.status { align-items: center; color: var(--muted); display: flex; font: 700 .65rem var(--mono); gap: .5rem; text-transform: uppercase; }
 .status i { background: var(--danger); border-radius: 50%; height: .45rem; width: .45rem; }
 .status[data-state="live"] i { background: var(--healthy); box-shadow: 0 0 8px var(--healthy); }
 .status[data-state="connecting"] i { background: var(--accent); }
+.user { border-left: 1px solid var(--line); color: var(--paper); font: 700 .7rem var(--mono); max-width: 12rem; overflow: hidden; padding-left: 1rem; text-overflow: ellipsis; white-space: nowrap; }
+.sign-out { background: transparent; border: 1px solid var(--line); color: var(--muted); cursor: pointer; font: 700 .62rem var(--mono); letter-spacing: .08em; min-height: 2.2rem; padding: 0 .8rem; text-transform: uppercase; }
+.sign-out:hover { border-color: var(--accent); color: var(--paper); }
 main { margin: 0 auto; max-width: 1440px; min-height: calc(100vh - 8rem); padding: 1rem clamp(1rem, 4vw, 3.5rem) 4rem; }
 footer { border-top: 1px solid var(--line); color: var(--muted); display: flex; font: 600 .6rem var(--mono); justify-content: space-between; letter-spacing: .12em; padding: 1rem clamp(1rem, 4vw, 3.5rem); text-transform: uppercase; }
-@media (max-width: 640px) { .site-header { grid-template-columns: 1fr auto; } .status { display: none; } nav a { padding: 0 .8rem; } }
+@media (max-width: 900px) { .user { display: none; } }
+@media (max-width: 640px) { .site-header { gap: .5rem; grid-template-columns: auto 1fr auto; } .brand span, .status { display: none; } nav { justify-content: center; } nav a { padding: 0 .7rem; } .sign-out { padding: 0 .55rem; } }

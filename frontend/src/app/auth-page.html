@@ -1,0 +1,51 @@
+<section class="auth">
+  <div class="intro">
+    <p class="eyebrow">{{ mode === 'signup' ? 'New operator' : 'Warehouse access' }}</p>
+    <h1>{{ mode === 'signup' ? 'Create account' : 'Sign in' }}</h1>
+    <p class="lede">
+      {{ mode === 'signup'
+        ? 'Set up an account to track stock, place orders and restock lines.'
+        : 'Sign in to open the inventory ledger and live stock board.' }}
+    </p>
+  </div>
+
+  <form class="card" (ngSubmit)="submit()" novalidate>
+    @if (mode === 'signup') {
+      <label>
+        <span>Full name</span>
+        <input name="name" [(ngModel)]="name" autocomplete="name" required maxlength="100" />
+      </label>
+    }
+    <label>
+      <span>Email</span>
+      <input name="email" type="email" [(ngModel)]="email" autocomplete="email" required />
+    </label>
+    <label>
+      <span>Password</span>
+      <input name="password" type="password" [(ngModel)]="password" required
+             [attr.autocomplete]="mode === 'signup' ? 'new-password' : 'current-password'" />
+    </label>
+    @if (mode === 'signup') {
+      <label>
+        <span>Confirm password</span>
+        <input name="confirmPassword" type="password" [(ngModel)]="confirmPassword" autocomplete="new-password" required />
+      </label>
+    }
+
+    @if (error()) {
+      <p class="error" role="alert">{{ error() }}</p>
+    }
+
+    <button class="primary" type="submit" [disabled]="busy()">
+      {{ busy() ? 'Please wait…' : mode === 'signup' ? 'Create account' : 'Sign in' }}
+    </button>
+
+    <p class="switch">
+      @if (mode === 'signup') {
+        Already have an account? <a routerLink="/login" queryParamsHandling="preserve">Sign in</a>
+      } @else {
+        New here? <a routerLink="/signup" queryParamsHandling="preserve">Create an account</a>
+      }
+    </p>
+  </form>
+</section>

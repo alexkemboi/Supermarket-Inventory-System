@@ -108,4 +108,19 @@ describe('StockRealtimeService', () => {
     expect(hub.startCalls).toBe(2);
     expect(service.state()).toBe('live');
   }));
+
+  it('stops for good on sign-out: no restart, alerts cleared', fakeAsync(() => {
+    void service.start();
+    flushMicrotasks();
+    hub.emit('LowStockAlert', alert(1, 4));
+
+    void service.stop();
+    flushMicrotasks();
+    tick(60_000);
+
+    expect(hub.stopCalls).toBe(1);
+    expect(hub.startCalls).toBe(1);
+    expect(service.state()).toBe('offline');
+    expect(service.alerts()).toEqual([]);
+  }));
 });

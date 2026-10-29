@@ -7,8 +7,8 @@ import { PagedResult, Product } from './models';
 export class ApiService {
   private readonly http = inject(HttpClient);
 
-  products(search = '', pageSize = 200): Observable<PagedResult<Product>> {
-    let params = new HttpParams().set('pageSize', pageSize);
+  products(search = '', pageSize = 200, page = 1): Observable<PagedResult<Product>> {
+    let params = new HttpParams().set('page', page).set('pageSize', pageSize);
     if (search.trim()) params = params.set('search', search.trim());
     return this.http.get<PagedResult<Product>>('/api/products', { params });
   }

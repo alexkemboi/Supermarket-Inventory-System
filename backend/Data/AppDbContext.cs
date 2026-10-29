@@ -9,6 +9,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Product> Products => Set<Product>();
     public DbSet<Order> Orders => Set<Order>();
     public DbSet<OrderLine> OrderLines => Set<OrderLine>();
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -33,6 +34,13 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
             e.HasIndex(o => new { o.Status, o.OrderDate })
                 .IsDescending(false, true)
                 .HasDatabaseName("IX_Orders_Status_OrderDate");
+        });
+
+        modelBuilder.Entity<User>(e =>
+        {
+            e.Property(u => u.Name).HasMaxLength(100);
+            e.Property(u => u.Email).HasMaxLength(256);
+            e.HasIndex(u => u.Email).IsUnique();
         });
 
         modelBuilder.Entity<OrderLine>(e =>

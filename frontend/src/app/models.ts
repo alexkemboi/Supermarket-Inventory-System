@@ -28,3 +28,16 @@ export interface LowStockNotice extends LowStockAlert {
   id: number;
   receivedAt: Date;
 }
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+/** Response of POST /api/auth/login and /api/auth/register. */
+export interface AuthResponse {
+  token: string;
+  expiresAt: string;
+  user: User;
+}

@@ -35,6 +35,20 @@ frontend/  Angular web app
 seed/      reset and load-generation scripts
 ```
 
+## Accounts
+
+Everything except `/health` and the Swagger docs needs a signed-in user. Create an account at `/signup` in the
+web app, or call the API directly:
+
+```bash
+curl -X POST http://localhost:5080/api/auth/register -H 'Content-Type: application/json'   -d '{"name":"Amina Otieno","email":"amina@example.com","password":"at-least-8-chars"}'
+# -> { "token": "...", "expiresAt": "...", "user": { ... } }
+curl http://localhost:5080/api/products -H "Authorization: Bearer <token>"
+```
+
+In Swagger (`/swagger`), call `POST /api/auth/login`, then paste the token into **Authorize**. Production must set
+`Jwt__Key` (32+ characters); `deploy/server-setup.sh` generates one.
+
 The main user flows are:
 
 - Search and inspect product stock
