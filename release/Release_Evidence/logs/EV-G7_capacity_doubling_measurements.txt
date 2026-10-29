@@ -1,0 +1,22 @@
+mode=list requests=3000 concurrency=20 instances=http://localhost:5080
+  200 via 5080: 3000
+  throughput=877.6 req/s  p50=20.4ms p95=38.0ms p99=60.6ms max=139.8ms
+during list c=20: stage-3-assessment-db-1 cpu=1.63% mem=1.09GiB / 15.44GiB
+during list c=20: stage-3-assessment-api-1 cpu=2.18% mem=468MiB / 15.44GiB
+mode=list requests=3000 concurrency=40 instances=http://localhost:5080
+  200 via 5080: 3000
+  throughput=1042.9 req/s  p50=34.4ms p95=63.1ms p99=110.8ms max=170.4ms
+during list c=40: stage-3-assessment-db-1 cpu=1.62% mem=1.09GiB / 15.44GiB
+during list c=40: stage-3-assessment-api-1 cpu=2.00% mem=458.4MiB / 15.44GiB
+during orders c=20: stage-3-assessment-db-1 cpu=62.59% mem=1.091GiB / 15.44GiB
+during orders c=20: stage-3-assessment-api-1 cpu=84.83% mem=455.5MiB / 15.44GiB
+mode=orders requests=800 concurrency=20 instances=http://localhost:5080
+  200 via 5080: 800
+  throughput=134.8 req/s  p50=140.1ms p95=183.1ms p99=192.6ms max=240.7ms
+  stock before=5026 after=4226 accepted units=800 consistent=true
+during orders c=40: stage-3-assessment-db-1 cpu=49.40% mem=1.091GiB / 15.44GiB
+during orders c=40: stage-3-assessment-api-1 cpu=67.37% mem=456.4MiB / 15.44GiB
+mode=orders requests=800 concurrency=40 instances=http://localhost:5080
+  200 via 5080: 800
+  throughput=120.7 req/s  p50=326.0ms p95=458.8ms p99=566.7ms max=621.6ms
+  stock before=4226 after=3426 accepted units=800 consistent=true

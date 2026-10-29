@@ -1,0 +1,31 @@
+ Image mcr.microsoft.com/mssql/server:2022-latest Pulled 
+ Image stage-3-assessment-api Built 
+ Image stage-3-assessment-web Built 
+ Container stage-3-assessment-api-1 Created 
+ Container stage-3-assessment-web-1 Created 
+ Container stage-3-assessment-db-1 Healthy 
+ Container stage-3-assessment-api-1 Started 
+ Container stage-3-assessment-web-1 Started 
+web-1  | Application bundle generation complete. [2.623 seconds] - 2026-10-29T02:34:43.360Z
+web-1  |   ➜  Local:   http://localhost:4200/
+api-1  |       Applying migration '20261023081746_InitialCreate'.
+api-1  |       WITH numbers AS (
+api-1  |       Now listening on: http://0.0.0.0:8080
+api-1  |       Application started. Press Ctrl+C to shut down.
+api-1  |       Hosting environment: Development
+api-1  |       Applying migration '20261029024124_AddNonNegativeStockConstraint'.
+api-1  |       Now listening on: http://0.0.0.0:8080
+api-1  |       Application started. Press Ctrl+C to shut down.
+api-1  |       Hosting environment: Development
+api-1  |       Now listening on: http://0.0.0.0:8080
+api-1  |       Application started. Press Ctrl+C to shut down.
+api-1  |       Hosting environment: Development
+web-1  | Application bundle generation complete. [0.377 seconds] - 2026-10-29T02:47:39.232Z
+api-1  |       Now listening on: http://0.0.0.0:8080
+api-1  |       Application started. Press Ctrl+C to shut down.
+api-1  |       Hosting environment: Development
+api-1  |       Now listening on: http://0.0.0.0:8080
+api-1  |       Application started. Press Ctrl+C to shut down.
+api-1  |       Hosting environment: Development
+web-1  | Application bundle generation complete. [23.618 seconds] - 2026-10-29T02:52:08.655Z
+web-1  | Application bundle generation complete. [3.693 seconds] - 2026-10-29T02:52:26.090Z

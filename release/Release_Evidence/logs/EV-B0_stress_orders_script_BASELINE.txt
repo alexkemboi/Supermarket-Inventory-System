@@ -1,0 +1,12 @@
+# Captured 2026-10-29T03:22:11Z — seed/stress-orders.sh against the ORIGINAL code (commit fc3c873 code via worktree 6028cbd) on http://localhost:5082, same database
+-- before
+stock 30
+order lines 0 0
+$ API_URL=http://localhost:5082 PRODUCT_ID=10 REQUESTS=40 ./seed/stress-orders.sh
+Concurrent requests: 40
+      3 200
+{"id":10,"name":"Tropical Heat Salted Crisps 150g","sku":"SNK-000010","categoryId":10,"category":"Snacks & Confectionery","unitPrice":30.00,"stock":13,"reorderThreshold":15}
+(script's own status tally under-counts on Git Bash for Windows; database counts below are authoritative)
+-- after
+stock 13
+order lines 40 40

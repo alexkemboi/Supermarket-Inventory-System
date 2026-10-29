@@ -1,0 +1,25 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__line_Quantity_1='?' (DbType = Int32), @__line_ProductId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      UPDATE [p]
+      SET [p].[Stock] = [p].[Stock] - @__line_Quantity_1
+      FROM [Products] AS [p]
+      WHERE [p].[Id] = @__line_ProductId_0 AND [p].[Stock] >= @__line_Quantity_1
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__line_ProductId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [p].[Id], [p].[Name], [p].[UnitPrice], [p].[Stock], [p].[ReorderThreshold]
+      FROM [Products] AS [p]
+      WHERE [p].[Id] = @__line_ProductId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p0='?' (DbType = DateTime2), @p1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [Orders] ([OrderDate], [Status])
+      OUTPUT INSERTED.[Id]
+      VALUES (@p0, @p1);
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32), @p5='?' (Precision = 18) (Scale = 2) (DbType = Decimal)], CommandType='Text', CommandTimeout='30']
+      SET IMPLICIT_TRANSACTIONS OFF;
+      SET NOCOUNT ON;
+      INSERT INTO [OrderLines] ([OrderId], [ProductId], [Quantity], [UnitPrice])
+      OUTPUT INSERTED.[Id]
+      VALUES (@p2, @p3, @p4, @p5);

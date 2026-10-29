@@ -1,0 +1,14 @@
+# Captured 2026-10-29T03:20:41Z — repository script seed/stress-orders.sh against the fixed API (localhost:5080)
+-- before
+stock 29
+order lines 0 0
+$ PRODUCT_ID=9 REQUESTS=40 ./seed/stress-orders.sh
+Concurrent requests: 40
+      5 200
+      3 409
+{"id":9,"name":"Weetabix Original 450g","sku":"BRC-000009","categoryId":9,"category":"Breakfast & Cereals","unitPrice":180.00,"stock":0,"reorderThreshold":15}
+(note: the script's own status tally under-counts on Git Bash for Windows; database counts below are authoritative)
+-- after
+stock 0
+order lines 29 29
+negative stock rows 0

@@ -1,0 +1,5 @@
+BEFORE (baseline ProductsController.List)
+page (pageSize=200): n=50 min=166.2ms median=224.9ms p95=261.0ms mean=222.6ms
+search=Milk:        n=50 min=69.8ms median=95.4ms p95=114.7ms mean=96.1ms
+pageSize=50 page=3: n=50 min=54.6ms median=68.6ms p95=88.7ms mean=71.0ms
+payload bytes (pageSize=200): 28978

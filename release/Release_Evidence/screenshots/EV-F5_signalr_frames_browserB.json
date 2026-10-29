@@ -1,0 +1,38 @@
+[
+  {
+    "at": "2026-10-29T03:18:33.163Z",
+    "target": "StockUpdated",
+    "arguments": [
+      41,
+      16
+    ]
+  },
+  {
+    "at": "2026-10-29T03:18:33.451Z",
+    "target": "StockUpdated",
+    "arguments": [
+      41,
+      15
+    ]
+  },
+  {
+    "at": "2026-10-29T03:18:34.849Z",
+    "target": "StockUpdated",
+    "arguments": [
+      41,
+      14
+    ]
+  },
+  {
+    "at": "2026-10-29T03:18:34.849Z",
+    "target": "LowStockAlert",
+    "arguments": [
+      {
+        "productId": 41,
+        "productName": "Sukuma Wiki 500g",
+        "stock": 14,
+        "reorderThreshold": 15
+      }
+    ]
+  }
+]

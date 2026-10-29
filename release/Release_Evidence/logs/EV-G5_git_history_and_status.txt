@@ -1,0 +1,29 @@
+$ git log --oneline --decorate
+4555d20 (HEAD -> main, origin/main) docs: document root causes, fixes and verification
+280ac2d test: add dependency-free load generator for multi-instance order checks
+1bfb08b feat: show low stock alerts as global toasts
+75569d9 refactor: extract order placement into OrderService
+d8329cc fix: broadcast stock updates to all watching clients
+2f076ee perf: remove N+1 category lookups from inventory list
+6157517 fix: prevent concurrent stock overselling
+6028cbd test: make last-unit race deterministic across queued lock waiters
+6bae192 test: add SQL Server integration tests reproducing order, list and SignalR issues
+fc3c873 chore: baseline snapshot of provided project (no prior git history present)
+
+$ git status --short (before adding release documents)
+?? release/
+$ git rev-parse HEAD origin/main
+4555d207f2432dc29cc0c9259a41633728b2b81c
+4555d207f2432dc29cc0c9259a41633728b2b81c
+
+$ git log --format='%h %ad %an %s' --date=iso
+4555d20 2026-10-29 06:02:59 +0300 alexkemboi docs: document root causes, fixes and verification
+280ac2d 2026-10-29 05:58:13 +0300 alexkemboi test: add dependency-free load generator for multi-instance order checks
+1bfb08b 2026-10-29 05:55:05 +0300 alexkemboi feat: show low stock alerts as global toasts
+75569d9 2026-10-29 05:51:04 +0300 alexkemboi refactor: extract order placement into OrderService
+d8329cc 2026-10-29 05:48:34 +0300 alexkemboi fix: broadcast stock updates to all watching clients
+2f076ee 2026-10-29 05:45:44 +0300 alexkemboi perf: remove N+1 category lookups from inventory list
+6157517 2026-10-29 05:43:03 +0300 alexkemboi fix: prevent concurrent stock overselling
+6028cbd 2026-10-29 05:40:03 +0300 alexkemboi test: make last-unit race deterministic across queued lock waiters
+6bae192 2026-10-29 05:31:38 +0300 alexkemboi test: add SQL Server integration tests reproducing order, list and SignalR issues
+fc3c873 2026-10-29 05:07:49 +0300 alexkemboi chore: baseline snapshot of provided project (no prior git history present)

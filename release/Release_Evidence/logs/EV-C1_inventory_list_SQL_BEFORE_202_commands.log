@@ -1,0 +1,1010 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Products] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [p].[Id], [p].[CategoryId], [p].[Name], [p].[ReorderThreshold], [p].[RowVersion], [p].[Sku], [p].[Stock], [p].[UnitPrice]
+      FROM [Products] AS [p]
+      ORDER BY [p].[Id]
+      OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (1ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (0ms) [Parameters=[@__product_CategoryId_0='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT TOP(2) [c].[Name]
+      FROM [Categories] AS [c]
+      WHERE [c].[Id] = @__product_CategoryId_0

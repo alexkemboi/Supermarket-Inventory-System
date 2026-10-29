@@ -1,0 +1,8 @@
+# Release package checksums (generated 2026-10-29T03:19:33Z )
+Source filename : rapid-inventory-1.1.0-src-4555d20.zip
+Built from      : git archive --format=zip 4555d20 (main)
+Size (bytes)    : 157850
+CRC32           : CE4AA374
+SHA-256         : 18f69d171e2ad2345679f22a152fe1c7081d82d2c29912b6bbe10c82a512d503
+Modified (local): 2026-10-29 06:19:33
+Entries         : 95

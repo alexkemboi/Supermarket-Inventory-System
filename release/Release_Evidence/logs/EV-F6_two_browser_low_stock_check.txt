@@ -1,0 +1,13 @@
+02:54:48.733 Product FPR-000021 "Hass Avocados 4 Pack" stock 17, threshold 15
+02:54:49.417 Browser A: connection live, shows stock 17
+02:54:49.419 Browser B: connection live, shows stock 17
+02:54:49.425 Browser A: clicked Order (qty 1), expecting stock 16
+02:54:49.548 Browser A: shows stock 16
+02:54:49.550 Browser B: shows stock 16 without reload  -> PASS
+02:54:49.674 Browser A: failed order shows "Order could not be placed."
+02:54:51.186 Browser B after failed order: 16 (before 16, database 16)  -> PASS
+02:54:52.318 Order to exactly the threshold (15): toasts A=0 B=0, expected none  -> PASS
+02:54:52.442 Browser A toast after falling to 14: ["Low stock | Hass Avocados 4 Pack | 14 left · reorder at 15"]  -> PASS
+02:54:52.443 Browser B toast after falling to 14: ["Low stock | Hass Avocados 4 Pack | 14 left · reorder at 15"]  -> PASS
+02:54:53.953 Failed order: toasts A=1 B=1, expected 1 each  -> PASS
+02:54:54.686 Browser B toasts after navigating away and back: 1, expected 1  -> PASS

@@ -1,0 +1,17 @@
+
+> frontend@0.0.0 build
+> ng build
+
+[33m❯[39m Building...
+[32m✔[39m Building...
+[1mInitial chunk files[22m  [2m | [22m[1mNames[22m        [2m | [22m [1mRaw size[22m[2m | [22m[1mEstimated transfer size[22m
+[32mmain-DN7HDNMR.js[39m     [2m | [22m[2mmain[22m         [2m | [22m[36m352.97 kB[39m[2m | [22m               [36m91.16 kB[39m
+[32mpolyfills-5CFQRCPP.js[39m[2m | [22m[2mpolyfills[22m    [2m | [22m [36m34.59 kB[39m[2m | [22m               [36m11.33 kB[39m
+[32mstyles-D5VST7RS.css[39m  [2m | [22m[2mstyles[22m       [2m | [22m[36m544 bytes[39m[2m | [22m              [36m544 bytes[39m
+
+[1m [22m                    [2m | [22m[1mInitial total[22m[2m | [22m[1m388.10 kB[22m[2m | [22m              [1m103.04 kB[22m
+
+Application bundle generation complete. [4.206 seconds] - 2026-10-29T02:58:02.779Z
+
+Output location: E:\ALEX\recv\stage-3-assessment\stage-3-assessment\frontend\dist\frontend
+

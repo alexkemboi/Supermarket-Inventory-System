@@ -1,0 +1,15 @@
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+      SELECT COUNT(*)
+      FROM [Products] AS [p]
+info: Microsoft.EntityFrameworkCore.Database.Command[20101]
+      Executed DbCommand (3ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='Text', CommandTimeout='30']
+      SELECT [p0].[Id], [p0].[Name], [p0].[Sku], [c].[Name], [p0].[UnitPrice], [p0].[Stock], [p0].[ReorderThreshold]
+      FROM (
+          SELECT [p].[Id], [p].[CategoryId], [p].[Name], [p].[ReorderThreshold], [p].[Sku], [p].[Stock], [p].[UnitPrice]
+          FROM [Products] AS [p]
+          ORDER BY [p].[Id]
+          OFFSET @__p_0 ROWS FETCH NEXT @__p_1 ROWS ONLY
+      ) AS [p0]
+      INNER JOIN [Categories] AS [c] ON [p0].[CategoryId] = [c].[Id]
+      ORDER BY [p0].[Id]

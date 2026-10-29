@@ -1,0 +1,13 @@
+mode=orders requests=200 concurrency=50 instances=http://localhost:5080,http://localhost:5081
+  200 via 5080: 26
+  409 via 5080: 74
+  409 via 5081: 100
+  throughput=259.3 req/s  p50=51.6ms p95=544.0ms p99=598.8ms max=600.0ms
+  stock before=26 after=0 accepted units=26 consistent=true
+mode=orders requests=300 concurrency=60 instances=http://localhost:5080,http://localhost:5081
+  200 via 5080: 41
+  200 via 5081: 39
+  409 via 5080: 109
+  409 via 5081: 111
+  throughput=180.6 req/s  p50=118.8ms p95=1072.2ms p99=1190.8ms max=1218.2ms
+  stock before=80 after=0 accepted units=80 consistent=true

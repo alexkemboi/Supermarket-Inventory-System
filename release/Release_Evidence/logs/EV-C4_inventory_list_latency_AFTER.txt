@@ -1,0 +1,5 @@
+AFTER (projected single query)
+page (pageSize=200): n=50 min=8.9ms median=11.9ms p95=15.5ms mean=12.2ms
+search=Milk:        n=50 min=19.7ms median=22.8ms p95=29.9ms mean=23.9ms
+pageSize=50 page=3: n=50 min=5.7ms median=7.2ms p95=8.7ms mean=7.5ms
+payload bytes (pageSize=200): 28978

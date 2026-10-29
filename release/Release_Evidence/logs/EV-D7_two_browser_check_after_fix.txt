@@ -1,0 +1,8 @@
+02:48:08.906 Product FPR-000021 "Hass Avocados 4 Pack" stock 40, threshold 15
+02:48:09.723 Browser A: connection live, shows stock 40
+02:48:09.726 Browser B: connection live, shows stock 40
+02:48:09.731 Browser A: clicked Order (qty 1), expecting stock 39
+02:48:10.045 Browser A: shows stock 39
+02:48:10.046 Browser B: shows stock 39 without reload  -> PASS
+02:48:10.165 Browser A: failed order shows "Order could not be placed."
+02:48:11.695 Browser B after failed order: 39 (before 39, database 39)  -> PASS

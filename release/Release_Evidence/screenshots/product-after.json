@@ -1,0 +1,10 @@
+{
+  "id": 41,
+  "name": "Sukuma Wiki 500g",
+  "sku": "FPR-000041",
+  "categoryId": 1,
+  "category": "Fresh Produce",
+  "unitPrice": 90,
+  "stock": 14,
+  "reorderThreshold": 15
+}

@@ -1,0 +1,21 @@
+# Captured 2026-10-29T03:19:20Z on the local Docker Compose stack
+$ docker compose ps
+SERVICE   STATUS                    PORTS
+api       Up 28 minutes             0.0.0.0:5080->8080/tcp, [::]:5080->8080/tcp
+db        Up 41 minutes (healthy)   0.0.0.0:1433->1433/tcp, [::]:1433->1433/tcp, 0.0.0.0:14333->1433/tcp, [::]:14333->1433/tcp
+web       Up 44 minutes             0.0.0.0:4200->4200/tcp, [::]:4200->4200/tcp
+
+$ curl http://localhost:5080/health
+{"status":"healthy"}
+$ curl -o /dev/null -w '%{http_code}' http://localhost:4200/
+200
+
+-- seeded data (SQL Server)
+Products 2000
+Categories 20
+Orders 251803
+Applied migration 20261023081746_InitialCreate
+Applied migration 20261029024124_AddNonNegativeStockConstraint
+Check constraint CK_Products_Stock_NonNegative ([Stock]>=(0))
+Products with negative stock 0
+Orders without lines (placed after seed) 0

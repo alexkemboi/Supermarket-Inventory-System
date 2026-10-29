@@ -1,0 +1,4 @@
+  |--Nested Loops(Inner Join, OUTER REFERENCES:([p].[CategoryId]))
+       |--Top(TOP EXPRESSION:((200)))
+       |    |--Clustered Index Scan(OBJECT:([Inventory].[dbo].[Products].[PK_Products] AS [p]), ORDERED FORWARD)
+       |--Clustered Index Seek(OBJECT:([Inventory].[dbo].[Categories].[PK_Categories] AS [c]), SEEK:([c].[Id]=[Inventory].[dbo].[Products].[CategoryId] as [p].[CategoryId]) ORDERED FORWARD)
