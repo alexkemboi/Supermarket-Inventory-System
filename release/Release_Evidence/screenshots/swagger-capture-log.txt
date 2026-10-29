@@ -1,0 +1,19 @@
+2026-10-29T03:51:11.809Z product 81 before: FPR-000081 "Red Onions 1kg" stock=18
+2026-10-29T03:51:12.891Z screenshot FE-01_inventory_list.png
+2026-10-29T03:51:14.394Z screenshot SW-01_swagger_endpoints.png
+2026-10-29T03:51:14.401Z endpoints: GET /health | POST /api/Orders | POST /api/Orders/{id}/cancel | POST /api/products/{productId}/restock | GET /api/Orders/recent | GET /api/Products | POST /api/Products | GET /api/Products/{id} | PUT /api/Products/{id} | DELETE /api/Products/{id}
+2026-10-29T03:51:15.218Z POST /api/Orders qty 1 -> 200 {
+  "id": 251878
+}
+2026-10-29T03:51:15.367Z screenshot SW-02_post_order_success_200.png
+2026-10-29T03:51:16.034Z POST /api/Orders qty 9999 -> 409 Undocumented {
+  "error": "Insufficient stock for product 81."
+}
+2026-10-29T03:51:16.168Z screenshot SW-03_post_order_insufficient_stock_409.png
+2026-10-29T03:51:16.671Z POST /api/Orders qty 0 -> 400 Undocumented {
+  "error": "All line quantities must be greater than zero."
+}
+2026-10-29T03:51:16.806Z screenshot SW-04_post_order_validation_400.png
+2026-10-29T03:51:18.867Z GET /api/Products?pageSize=2&search=FPR-00008 -> 200 { "items": [ { "id": 81, "name": "Red Onions 1kg", "sku": "FPR-000081", "category": "Fresh Produce", "unitPrice": 130, "stock": 17, "reorderThreshold": 15 } ], "total": 1, "page": 1, "pageSize": 2 }
+2026-10-29T03:51:19.011Z screenshot SW-05_get_products_200.png
+2026-10-29T03:51:19.033Z product 81 after: stock=17

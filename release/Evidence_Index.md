@@ -100,3 +100,26 @@ Issues: INV-001 overselling · INV-002 slow inventory list · INV-003 SignalR sy
 | Screenshot of the zip CRC (template) | Not captured | Values computed and recorded as text (EV-G6) |
 | Walkthrough video | Not recorded | See `docs/WALKTHROUGH_SCRIPT.md` |
 | Sign-off / approvals | Pending | No names or approvals supplied |
+
+## Added for the updated release note (`Rapid_Tech_Insights_Updated_Release_Note.docx`)
+
+These are genuine captures from the running stack, taken on 29 Oct 2026 at 03:49–03:51 UTC.
+
+- **Swagger screenshots:** each one is from a real "Execute" in Swagger UI. They are cropped from the Curl block down to the server response.
+- **Frontend crops:** the `_crop` files are the top 470 px of the original frontend screenshots, so they stay legible at page width. The uncropped originals are kept.
+- **Timeline:** `screenshots/swagger-capture-log.txt` records every call. The capture script ran several times while being fixed, so product 81 went 21 → 17 through real orders; every call is logged.
+
+| Figure | File | Shows | Status |
+|---|---|---|---|
+| 1 | `screenshots/SW-03_post_order_insufficient_stock_409.png` | `POST /api/Orders` qty 9999 → 409 `"Insufficient stock for product 81."` | PASS |
+| 2 | `screenshots/FE-01_inventory_list.png` | Inventory list with stock, live connection | PASS |
+| 3 | `screenshots/SW-05_get_products_200.png` | `GET /api/Products?pageSize=2&search=FPR-00008` → 200, product 81 stock 17 | PASS |
+| 4 | `screenshots/EV-D3_browserA_after_order_crop.png` | Browser A after an order (17 → 16) | PASS |
+| 5 | `screenshots/EV-D4_browserB_updated_without_refresh_crop.png` | Browser B updated without refresh | PASS |
+| 6 | `screenshots/SW-01_swagger_endpoints.png` | All API endpoints in Swagger UI | — |
+| 7 | `screenshots/SW-02_post_order_success_200.png` | `POST /api/Orders` qty 1 → 200 `{"id":251878}` | PASS |
+| 8 | `screenshots/SW-04_post_order_validation_400.png` | qty 0 → 400 `"All line quantities must be greater than zero."` | PASS |
+| 9 | `screenshots/EV-D5_browserA_failed_order_error_crop.png` | Frontend error for an order that cannot be placed | PASS |
+| 10 | `screenshots/EV-F2_browserA_low_stock_toast_crop.png` | Low-stock toast in Browser A | PASS |
+| 11 | `screenshots/EV-F3_browserB_low_stock_toast_crop.png` | Same toast in Browser B | PASS |
+| — | `package/rapid-inventory-1.1.0-src-9e622be.zip`, `logs/EV-G6b_release_package_checksums_9e622be.txt` | Source package (release artifacts excluded), CRC32 5E374E3E | — |
