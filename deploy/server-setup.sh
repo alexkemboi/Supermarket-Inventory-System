@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # One-shot (and re-runnable) deploy for Ubuntu 24.04.
-#   Frontend: https://superinventory.alexkemboi.dev -> web container (127.0.0.1:8090)
-#   API:      https://apiinventory.alexkemboi.dev   -> api container (127.0.0.1:5080)
+#   Frontend: https://superinventory.alexkemboi.dev -> web container (127.0.0.1:$WEB_PORT, default 18090)
+#   API:      https://apiinventory.alexkemboi.dev   -> api container (127.0.0.1:$API_PORT, default 5080)
 #   DB:       SQL Server container, not exposed outside Docker
 # Usage (as root, from the repo root):  bash deploy/server-setup.sh
 set -euo pipefail
@@ -31,12 +31,17 @@ EOF
   chmod 600 .env
 fi
 
+# Host ports; override in .env if they clash with something already on the server.
+set -a; . ./.env; set +a
+WEB_PORT="${WEB_PORT:-18090}"
+API_PORT="${API_PORT:-5080}"
+
 echo "==> Building and starting containers"
 docker compose -f docker-compose.prod.yml up -d --build
 
 echo "==> Configuring host nginx"
 cat > /etc/nginx/sites-available/inventory.conf <<EOF
-map \$http_upgrade \$connection_upgrade {
+map \$http_upgrade \$inventory_connection_upgrade {
     default upgrade;
     ''      close;
 }
@@ -47,10 +52,10 @@ server {
     client_max_body_size 10m;
 
     location / {
-        proxy_pass http://127.0.0.1:8090;
+        proxy_pass http://127.0.0.1:$WEB_PORT;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection \$connection_upgrade;
+        proxy_set_header Connection \$inventory_connection_upgrade;
         proxy_set_header Host \$host;
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto \$scheme;
@@ -64,10 +69,10 @@ server {
     client_max_body_size 10m;
 
     location / {
-        proxy_pass http://127.0.0.1:5080;
+        proxy_pass http://127.0.0.1:$API_PORT;
         proxy_http_version 1.1;
         proxy_set_header Upgrade \$http_upgrade;
-        proxy_set_header Connection \$connection_upgrade;
+        proxy_set_header Connection \$inventory_connection_upgrade;
         proxy_set_header Host \$host;
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto \$scheme;
@@ -87,7 +92,7 @@ certbot --nginx --non-interactive --agree-tos --redirect -m "$CERT_EMAIL" -d "$W
 
 echo "==> Waiting for API health (first start seeds the database and can take a few minutes)"
 for i in $(seq 1 90); do
-  if curl -fsS http://127.0.0.1:5080/health >/dev/null 2>&1; then
+  if curl -fsS http://127.0.0.1:$API_PORT/health >/dev/null 2>&1; then
     echo "API healthy"; break
   fi
   sleep 5
