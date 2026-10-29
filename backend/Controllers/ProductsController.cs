@@ -27,29 +27,15 @@ public class ProductsController(AppDbContext db) : ControllerBase
 
         var total = await query.CountAsync(ct);
 
-        var products = await query
+        // One query: the category name is joined and only the DTO columns are selected. Projections are
+        // not change-tracked, so no entity materialization or tracking cost.
+        var items = await query
             .OrderBy(p => p.Id)
             .Skip((page - 1) * pageSize)
             .Take(pageSize)
+            .Select(p => new ProductListDto(
+                p.Id, p.Name, p.Sku, p.Category.Name, p.UnitPrice, p.Stock, p.ReorderThreshold))
             .ToListAsync(ct);
-
-        var items = new List<ProductListDto>();
-        foreach (var product in products)
-        {
-            var category = await db.Categories
-                .Where(c => c.Id == product.CategoryId)
-                .Select(c => c.Name)
-                .SingleAsync(ct);
-
-            items.Add(new ProductListDto(
-                product.Id,
-                product.Name,
-                product.Sku,
-                category,
-                product.UnitPrice,
-                product.Stock,
-                product.ReorderThreshold));
-        }
 
         return new PagedResult<ProductListDto>(items, total, page, pageSize);
     }
