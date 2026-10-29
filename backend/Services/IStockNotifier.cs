@@ -1,3 +1,4 @@
+using Inventory.Api.Contracts;
 using Inventory.Api.Hubs;
 using Microsoft.AspNetCore.SignalR;
 
@@ -13,16 +14,13 @@ public class SignalRStockNotifier(IHubContext<StockHub> hub) : IStockNotifier
 {
     public const string StockWatchersGroup = "stock-watchers";
 
+    // Stock changes are broadcast to every watcher, including the requester (whose own page applies the
+    // same value idempotently). The requester's connection id is accepted for compatibility but no longer
+    // narrows the audience: sending only to the requester is what kept other users' boards stale.
     public Task StockUpdatedAsync(int productId, int newStock, CancellationToken ct = default, string? requesterConnectionId = null)
-    {
-        var clients = requesterConnectionId is null
-            ? hub.Clients.Group(StockWatchersGroup)
-            : hub.Clients.Client(requesterConnectionId);
-
-        return clients.SendAsync("StockUpdated", productId, newStock, ct);
-    }
+        => hub.Clients.Group(StockWatchersGroup).SendAsync("StockUpdated", productId, newStock, ct);
 
     public Task LowStockAlertAsync(int productId, string productName, int stock, int reorderThreshold, CancellationToken ct = default)
         => hub.Clients.Group(StockWatchersGroup)
-            .SendAsync("LowStockAlert", new { productId, productName, stock, reorderThreshold }, ct);
+            .SendAsync("LowStockAlert", new LowStockAlertDto(productId, productName, stock, reorderThreshold), ct);
 }

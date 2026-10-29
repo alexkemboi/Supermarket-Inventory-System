@@ -31,6 +31,7 @@ export class StockRealtimeService {
     this.connection.onclose(() => {
       this.started = false;
       this.state.set('offline');
+      this.scheduleRestart();
     });
     this.connection.onreconnected(async () => {
       await this.connection.invoke('JoinStockWatchers');
@@ -48,10 +49,27 @@ export class StockRealtimeService {
       await this.connection.start();
       await this.connection.invoke('JoinStockWatchers');
       this.state.set('live');
+      if (this.restartAttempts > 0) this.refreshRequested.next();
+      this.restartAttempts = 0;
     } catch (error) {
       this.started = false;
       this.state.set('offline');
+      this.scheduleRestart();
       throw error;
     }
+  }
+
+  // withAutomaticReconnect gives up after ~40s; keep retrying (capped backoff) so a longer API outage
+  // does not leave the page permanently offline. Data is reloaded once the connection is back.
+  private restartAttempts = 0;
+  private restartTimer: ReturnType<typeof setTimeout> | undefined;
+
+  private scheduleRestart(): void {
+    if (this.restartTimer !== undefined) return;
+    const delay = Math.min(30_000, 1_000 * 2 ** this.restartAttempts++);
+    this.restartTimer = setTimeout(() => {
+      this.restartTimer = undefined;
+      void this.start().catch(() => undefined);
+    }, delay);
   }
 }
