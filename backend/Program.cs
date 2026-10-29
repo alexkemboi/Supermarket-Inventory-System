@@ -23,7 +23,12 @@ builder.Services.AddSingleton<IStockNotifier, SignalRStockNotifier>();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment()) app.MapOpenApi();
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    // Interactive docs at /swagger, rendered from the built-in OpenAPI document.
+    app.UseSwaggerUI(options => options.SwaggerEndpoint("/openapi/v1.json", "Inventory API v1"));
+}
 
 app.UseCors();
 app.MapControllers();
