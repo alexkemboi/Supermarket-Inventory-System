@@ -10,8 +10,11 @@ builder.Services.AddControllers()
     .AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddOpenApi();
 builder.Services.AddSignalR();
+// Comma-separated list, e.g. Cors__AllowedOrigins=https://app.example.com,http://localhost:4200
+var allowedOrigins = (builder.Configuration["Cors:AllowedOrigins"] ?? "http://localhost:4200")
+    .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy => policy
-    .WithOrigins("http://localhost:4200")
+    .WithOrigins(allowedOrigins)
     .AllowAnyHeader()
     .AllowAnyMethod()
     .AllowCredentials()));

@@ -1,0 +1,47 @@
+# Production stack. Secrets come from .env next to this file (see deploy/server-setup.sh).
+#   docker compose -f docker-compose.prod.yml up -d --build
+services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD:?set MSSQL_SA_PASSWORD in .env}
+    volumes:
+      - sql-data:/var/opt/mssql
+    healthcheck:
+      test: ["CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -C -Q 'SELECT 1' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+      start_period: 30s
+
+  api:
+    build:
+      context: backend
+      target: final
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: Production
+      ASPNETCORE_URLS: http://0.0.0.0:8080
+      ConnectionStrings__DefaultConnection: "Server=db,1433;Database=Inventory;User Id=sa;Password=${MSSQL_SA_PASSWORD};TrustServerCertificate=True"
+      Cors__AllowedOrigins: ${CORS_ALLOWED_ORIGINS:-https://superinventory.alexkemboi.dev}
+      SEED_ORDER_COUNT: ${SEED_ORDER_COUNT:-250000}
+    ports:
+      - "127.0.0.1:5080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: frontend
+      dockerfile: Dockerfile.prod
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8090:80"
+    depends_on:
+      - api
+
+volumes:
+  sql-data:
